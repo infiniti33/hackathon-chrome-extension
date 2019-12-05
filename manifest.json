@@ -4,6 +4,12 @@
     "description": "Build an Extension!",
     "options_page": "options.html",
     "manifest_version": 2,
+    "content_scripts": [
+      {
+        "matches": ["http://*/*", "https://*/*", "https://www.youtube.com/*"],
+        "js": ["jquery.min.js", "main.js"]
+      }
+    ],
     "background": {
         "scripts": ["background.js"],
         "persistent": false
