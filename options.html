@@ -1,21 +1,78 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-      button {
-        height: 30px;
-        width: 30px;
-        outline: none;
-        margin: 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="buttonDiv">
-    </div>
-    <div>
-      <p>Choose a different background color!</p>
-    </div>
-  </body>
-  <script src="options.js"></script>
+
+<head>
+    <title>My Test Extension Options</title>
+</head>
+
+<body>
+
+    Favorite color:
+    <select id="color">
+ <option value="red">red</option>
+ <option value="green">green</option>
+ <option value="blue">blue</option>
+ <option value="yellow">yellow</option>
+</select>
+
+    <label>
+  <input type="checkbox" id="like">
+  I like colors.
+</label>
+
+    <div id="status"></div>
+    <button id="save">Save</button>
+
+    <script src="options.js"></script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+    <title>Domain Whitelist - options</title>
+</head>
+
+<body>
+    <div class=container>
+        <div class=page-header>
+            <h1>Domain Whitelist <small>Ultimate blocker which says no to every network packet until you explicitly allow it.</small></h1>
+        </div>
+        <div class="row wrapper">
+            <div class=col-md-4>
+                <h2><span class="glyphicon glyphicon-list" aria-hidden=true></span> Whitelist</h2>
+                <div class="data-container whitelist"><textarea id=whitelist class=form-control spellcheck=false></textarea></div>
+                <div class=actions><button id=save><span class="glyphicon glyphicon-save" aria-hidden=true></span> Save</button> <button id=sort><span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden=true></span> Sort by name</button></div>
+                <div class=description>This is a list of domains whose content is allowed to load. One domain name per line, e.g. "example.com" is valid entry, "http://example.com" is invalid. <strong>Wildcard</strong> (*) is supported, e.g. "*.google.com" will match www.google.com
+                    and accounts.google.com. <span class=dev></span></div>
+            </div>
+            <div class=col-md-4>
+                <h2><span class="glyphicon glyphicon-ok" aria-hidden=true></span> Allowed requests</h2>
+                <div class="data-container allowed">
+                    <table class="table table-striped table-condensed">
+                        <thead>
+                            <th class=action><span class="glyphicon glyphicon-ok" aria-hidden=true></span></th>
+                            <th class=reqs>#</th>
+                            <th class=domain>domain</th>
+                        </thead>
+                        <tbody class=stats id=stats-allowed></tbody>
+                    </table>
+                    <div class=no-requests>Nothing detected yet.</div>
+                </div>
+                <div class=actions><button class=refresh><span class="glyphicon glyphicon-refresh" aria-hidden=true></span> Refresh</button> <button class=clear><span class="glyphicon glyphicon-trash" aria-hidden=true></span> Clear (incl. blocked)</button></div>
+                <div class=description>This is a list of domains whose content was <strong>requested and allowed</strong> - be it the page itself, images, embedded frames (social media buttons) or any other resource albeit not visible to you (scripts, ad tracking codes).
+                    <span class=dev>The list is ordered by the number of requests made since installing Domain Whitelist or last clearing.</span>
+                </div>
+            </div>
+            <script src=libs/jquery/jquery.min.js></script>
+            <script src=libs/bootstrap/js/bootstrap.min.js></script>
+            <script src=libs/pnotify/pnotify.custom.min.js></script>
+            <script src=js/config.js></script>
+            <script src=js/fn.js></script>
+            <script src=js/primitive-renderer.js></script>
+            <script src=options.js></script>
+</body>
+
 </html>
