@@ -1,34 +1,72 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
-    <title>My Test Extension Options</title>
+  <title>My Whitelist Options</title>
+  <style>
+
+    #whitelist-container {
+      width: 600px;
+      height: 50%;
+      padding-left: 20px;
+      position: absolute;
+      
+    }
+    h1 {
+      width: 450px;
+      text-align: center;
+      margin-left: 30px;
+      margin-top: 20px;
+      font-size: 35px;
+    }
+
+    #whitelist-instructions {
+      width: 500px;
+      text-align: left;
+      margin-left: 40px;
+      font-size: 13px;
+    }
+
+    #whitelist-textbox {
+      margin-top: 5px;
+      margin-left: 30px;
+      padding-top: 10px;
+      padding-left: 10px;
+      border-color: darkgray;
+      border-width: 2px;
+      line-height: 150%;
+    }
+
+
+
+  </style>
 </head>
 
 <body>
+  <div id="whitelist-container">
+    <h1>Coding Focus Whitelist</h1>
+    <div id="whitelist-instructions">
+      <h4>Enter a domain or keyword to whitelist. If a website URL contains anything in the whitelist, Coding Focus will not disable links on that site.</h4>
+    </div>
+    <textarea id="whitelist-textbox"></textarea>
+  
+    <div id="buttons">
+      <button id="save">Save whitelist urls</button>
+      <form action="mailto:chengjieyun59@gmail.com" method="post" enctype="text/plain">
+        <input type="submit" value="Send Feedback">
+        <!-- <input type="reset" value="Reset"> -->
+      </form>
+    </div>
+  </div>
 
-    Favorite color:
-    <select id="color">
- <option value="red">red</option>
- <option value="green">green</option>
- <option value="blue">blue</option>
- <option value="yellow">yellow</option>
-</select>
 
-    <label>
-  <input type="checkbox" id="like">
-  I like colors.
-</label>
-
-    <div id="status"></div>
-    <button id="save">Save</button>
-
-    <script src="options.js"></script>
+  <script src="options.js"></script>
+  <script src=jquery.min.js></script>
 </body>
 
-</html> -->
+</html>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang=en>
 
 <head>
@@ -75,4 +113,4 @@
             <script src=options.js></script>
 </body>
 
-</html>
+</html> -->

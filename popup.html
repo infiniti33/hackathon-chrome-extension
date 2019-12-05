@@ -2,30 +2,125 @@
 <html>
 
 <head>
-    <style>
-        button {
-            /* height: 30px;
-            width: 30px;
-            outline: none; */
-            width: 100%;
-            background-image: linear-gradient(#EDEDED, #EDEDED 38%, #DEDEDE);
-            border: 1px solid rgba(0, 0, 0, 0.25);
-            border-radius: 2px;
-            outline: none;
-            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), inset 0 1px 2px rgba(255, 255, 255, 0.75);
-            color: #444;
-            text-shadow: 0 1px 0 rgb(240, 240, 240);
-            font: inherit;
-            user-select: none;
-        }
-    </style>
+  <title>Coding Focus</title>
+  <style>
+    body {
+      width: 320px;
+    }
+
+    button {
+      /* height: 30px;
+      width: 30px;
+      outline: none; */
+      width: 100%;
+      background-image: linear-gradient(#EDEDED, #EDEDED 38%, #DEDEDE);
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      border-radius: 2px;
+      outline: none;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), inset 0 1px 2px rgba(255, 255, 255, 0.75);
+      color: #444;
+      text-shadow: 0 1px 0 rgb(240, 240, 240);
+      font: inherit;
+      user-select: none;
+    }
+    
+    .button {
+      /* height: 30px;
+      width: 30px;
+      outline: none; */
+      width: 100%;
+      background-image: linear-gradient(#EDEDED, #EDEDED 38%, #DEDEDE);
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      border-radius: 2px;
+      outline: none;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), inset 0 1px 2px rgba(255, 255, 255, 0.75);
+      color: #444;
+      text-shadow: 0 1px 0 rgb(240, 240, 240);
+      font: inherit;
+      user-select: none;
+    }
+    /* .switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+    }
+
+    .switch input { 
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    /* .slider.round {
+      border-radius: 20px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    } */
+
+  </style>
 </head>
 
 <body>
-    <button id="config">Whitelist a site</button>
-    <button id="feedback" class="secondary">Send feedback</button>
-    <button id="about" class="secondary">About</button>
-    <script src="popup.js"></script>
+  <h4>Coding Focus</h4>
+  <p>- an extension that would stop you from going down a rabbit hole of Internet surfing. Any links that are clicked would not bring you to a new page. You can whitelist certain websites that you would still like to be able to click on links for.</p>
+
+  <!-- <label class="switch">
+    <input type="checkbox" checked>
+    <span class="slider round">Enable</span>
+  </label> -->
+  
+
+  <button class="button button1" id="disableButton" >Enable or disable</button>
+  <br id="br1" style="display:none">
+  <br id="br2" style="display:none">
+  
+  <button id="config">Whitelist a site</button>
+  <button id="about" class="secondary">About</button>
+  <script src="popup.js"></script>
+  <script src="main.js"></script>
+  <script src=libs/jquery/jquery.min.js></script>
 </body>
 
 </html>
