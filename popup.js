@@ -1,20 +1,52 @@
-var isExtensionOn = true;
+let disableButton = document.getElementById("disableButton");
 
-function disableButton() {
-  var disableButton = document.getElementById("disableButton");
-  if (disableButton.innerHTML === "Disable") {
-      isExtensionOn = false;
-      console.log(isExtensionOn);
-  } else if (disableButton.innerHTML === "Enable") {
-      isExtensionOn = true;
-      console.log(isExtensionOn);
+// disableButton.addEventListener('click', () => {
+//   let bool = true;
+//   if (disableButton.innerHTML === 'enable') {
+//     bool = false;
+//   }
+//   chrome.runtime.sendMessage(string extensionId, any message, object options, function responseCallback)
+//   chrome.storage.sync.set({ enabledOrDisabled: bool }, () => {
+//     chrome.storage.sync.get(['enabledOrDisabled'], (result) => {
+//       console.log('enabledOrDisabled in popup.js', result.enabledOrDisabled);
+//     })
+//   });
+// })
 
-  } else {
-      alert("Error");
-  }
-}
+
+// function disableButton() {
+//   var disableButton = document.getElementById("disableButton");
+//   if (disableButton.innerHTML === "Disable") {
+//       isExtensionOn = false;
+//       console.log(isExtensionOn);
+//   } else if (disableButton.innerHTML === "Enable") {
+//       isExtensionOn = true;
+//       console.log(isExtensionOn);
+
+//   } else {
+//       alert("Error");
+//   }
+// }
 
 document.addEventListener('DOMContentLoaded', function() {
+  chrome.extension.sendMessage({cmd: "getOnOffState"}, function (response) {
+    if (response !== undefined) {
+      if (response) {
+        disableButton.innerHTML = "Disable";
+        // disableButton.className = "button button3";
+        disableButton.style.display = "";
+        br1.style.display = "";
+        br2.style.display = "";
+      }
+      else {
+        disableButton.innerHTML = "Enable";
+        // disableButton.className = "button button1";
+        disableButton.style.display = "";
+        br1.style.display = "";
+        br2.style.display = "";
+      }
+    }
+  });
 
   document.querySelector('#about').addEventListener('click', function() {
     window.open("https://github.com/infiniti33/hackathon-chrome-extension");
@@ -25,45 +57,27 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   document.querySelector('#disableButton').addEventListener('click', function() {
-    isExtensionOn = !isExtensionOn;
-    let disableButton = document.getElementById("disableButton");
-    if (isExtensionOn) {
-      disableButton.innerHTML = "disable";
-    } else {
-      disableButton.innerHTML = "enable";
-    }
-    
-    console.log('isExtensionOn: ', isExtensionOn);
+    chrome.extension.sendMessage({cmd: "getOnOffState"}, function (response) {
+      if (response !== undefined) {
+        let isExtensionOn = response;
+        isExtensionOn = !isExtensionOn;
+        chrome.extension.sendMessage({cmd: "setOnOffState", data: {value: isExtensionOn}});
+        if (isExtensionOn) {
+          disableButton.innerHTML = "Disable";
+        } else {
+          disableButton.innerHTML = "Enable";
+        }
+      }
+    });
   });
-
-
-
-  var disableButton = document.getElementById("disableButton");
   var br1 = document.getElementById("br1");
   var br2 = document.getElementById("br2");
 
   //Send message to event.js (background script) telling it to disable the extension.
 
-  // chrome.extension.sendMessage({cmd: "setOnOffState", data: {value: isExtensionOn}});
 
-  // chrome.extension.sendMessage({cmd: "getOnOffState"}, function (response) {
-  //   if (response !== undefined) {
-  //     if (response) {
-  //       disableButton.innerHTML = "Disable";
-  //       disableButton.className = "button button3";
-  //       disableButton.style.display = "";
-  //       br1.style.display = "";
-  //       br2.style.display = "";
-  //     }
-  //     else {
-  //       disableButton.innerHTML = "Enable";
-  //       disableButton.className = "button button1";
-  //       disableButton.style.display = "";
-  //       br1.style.display = "";
-  //       br2.style.display = "";
-  //     }
-  //   }
-  // });
+
+
 
 });
 
